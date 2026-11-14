@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,16 +20,24 @@ body.dark .search-box input { background:#2a2a2a; color:white; border-color:#444
 .filters { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:25px; }
 .filters button { padding:9px 18px; border-radius:25px; border:1px solid #ff5e8a; background:white; color:#ff5e8a; cursor:pointer; font-weight:bold; }
 .filters button.active, .filters button:hover { background:#ff5e8a; color:white; }
-.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-.card { background:white; border-radius:15px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.08); text-align:center; animation:fadeUp 0.6s ease; }
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; }
+.card { background:white; border-radius:18px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08); text-align:center; padding-bottom:20px; animation:fadeUp 0.6s ease; }
 body.dark .card { background:#2a2a2a; }
-.card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 10px 25px rgba(255,94,138,0.25); }
+.card:hover { transform:translateY(-8px); box-shadow:0 12px 25px rgba(255,94,138,0.25); }
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-.card .emoji { font-size:40px; }
-.card h3 { margin:12px 0 8px; font-size:19px; }
-.card p { font-size:14px; color:#666; line-height:1.5; min-height:55px; }
+.cover { height:150px; display:flex; align-items:center; justify-content:center; font-size:70px; }
+.c1 { background:linear-gradient(135deg,#ff9a9e,#fad0c4); }
+.c2 { background:linear-gradient(135deg,#a1c4fd,#c2e9fb); }
+.c3 { background:linear-gradient(135deg,#ffecd2,#fcb69f); }
+.c4 { background:linear-gradient(135deg,#ff9a9e,#fecfef); }
+.c5 { background:linear-gradient(135deg,#fbc2eb,#a6c1ee); }
+.c6 { background:linear-gradient(135deg,#84fab0,#8fd3f4); }
+.c7 { background:linear-gradient(135deg,#f6d365,#fda085); }
+.c8 { background:linear-gradient(135deg,#667eea,#764ba2); }
+.card h3 { margin:15px 0 8px; font-size:20px; padding:0 15px; }
+.card p { font-size:14px; color:#666; line-height:1.5; min-height:55px; padding:0 15px; }
 body.dark .card p { color:#ccc; }
-.card a { display:inline-block; margin-top:12px; background:#ff5e8a; color:white; padding:10px 20px; border-radius:25px; text-decoration:none; font-weight:bold; }
+.card a { display:inline-block; margin-top:12px; background:#ff5e8a; color:white; padding:10px 25px; border-radius:25px; text-decoration:none; font-weight:bold; }
 .card a:hover { background:#e04472; }
 .skills { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
 .skills span { background:white; border:1px solid #ffd0dd; padding:10px 18px; border-radius:25px; font-weight:bold; font-size:14px; }
@@ -70,56 +77,56 @@ I focus on clean code, modern design, and websites that work perfectly on mobile
 <div class="projects" id="projects">
 
 <div class="card" data-cat="web" data-name="omnia fashion">
-<div class="emoji">👗</div>
+<div class="cover c1">👗</div>
 <h3>Omnia Fashion</h3>
 <p>Fashion store with product details, filter by price, tracking & dark mode</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-fashion/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia clinic">
-<div class="emoji">🏥</div>
+<div class="cover c2">🏥</div>
 <h3>Omnia Clinic</h3>
 <p>Smart medical booking system with symptoms suggestion, slots & patient file</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-clinic/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia restaurant pro">
-<div class="emoji">🍔</div>
+<div class="cover c3">🍔</div>
 <h3>Omnia Restaurant Pro</h3>
 <p>Food ordering website with cart, filter & WhatsApp order</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-restaurant-pro/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="cat app">
-<div class="emoji">🐱</div>
+<div class="cover c4">🐱</div>
 <h3>Cat App</h3>
 <p>Fun interactive cat app</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/cat-app/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="calculator app">
-<div class="emoji">🧮</div>
+<div class="cover c5">🧮</div>
 <h3>Calculator App</h3>
 <p>Calculator with clean design</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/calculator-app/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="memory match game">
-<div class="emoji">🧠</div>
+<div class="cover c6">🧠</div>
 <h3>Memory Match Game</h3>
 <p>Memory matching game with JavaScript</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/memory-match-game/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia real estate">
-<div class="emoji">🏠</div>
+<div class="cover c7">🏠</div>
 <h3>Omnia Real Estate</h3>
 <p>Real estate website to browse properties</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-real-estate/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="react" data-name="omnia react shop">
-<div class="emoji">🛍️</div>
+<div class="cover c8">🛍️</div>
 <h3>Omnia React Shop</h3>
 <p>E-commerce store built with React - Search, Filter, Cart, Quantity, Favorites, Dark Mode & Checkout</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/Omnia-React-Shop/" target="_blank">View Live</a>
