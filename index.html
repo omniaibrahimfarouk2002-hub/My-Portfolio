@@ -25,15 +25,9 @@ body.dark .search-box input { background:#2a2a2a; color:white; border-color:#444
 body.dark .card { background:#2a2a2a; }
 .card:hover { transform:translateY(-8px); box-shadow:0 12px 25px rgba(255,94,138,0.25); }
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-.cover { height:150px; display:flex; align-items:center; justify-content:center; font-size:70px; }
-.c1 { background:linear-gradient(135deg,#ff9a9e,#fad0c4); }
-.c2 { background:linear-gradient(135deg,#a1c4fd,#c2e9fb); }
-.c3 { background:linear-gradient(135deg,#ffecd2,#fcb69f); }
-.c4 { background:linear-gradient(135deg,#ff9a9e,#fecfef); }
-.c5 { background:linear-gradient(135deg,#fbc2eb,#a6c1ee); }
-.c6 { background:linear-gradient(135deg,#84fab0,#8fd3f4); }
-.c7 { background:linear-gradient(135deg,#f6d365,#fda085); }
-.c8 { background:linear-gradient(135deg,#667eea,#764ba2); }
+.cover { height:180px; overflow:hidden; }
+.cover img { width:100%; height:100%; object-fit:cover; display:block; }
+.card:hover .cover img { transform:scale(1.08); }
 .card h3 { margin:15px 0 8px; font-size:20px; padding:0 15px; }
 .card p { font-size:14px; color:#666; line-height:1.5; min-height:55px; padding:0 15px; }
 body.dark .card p { color:#ccc; }
@@ -77,56 +71,56 @@ I focus on clean code, modern design, and websites that work perfectly on mobile
 <div class="projects" id="projects">
 
 <div class="card" data-cat="web" data-name="omnia fashion">
-<div class="cover c1">👗</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80" alt="Omnia Fashion"></div>
 <h3>Omnia Fashion</h3>
 <p>Fashion store with product details, filter by price, tracking & dark mode</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-fashion/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia clinic">
-<div class="cover c2">🏥</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Omnia Clinic"></div>
 <h3>Omnia Clinic</h3>
 <p>Smart medical booking system with symptoms suggestion, slots & patient file</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-clinic/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia restaurant pro">
-<div class="cover c3">🍔</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Omnia Restaurant"></div>
 <h3>Omnia Restaurant Pro</h3>
 <p>Food ordering website with cart, filter & WhatsApp order</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-restaurant-pro/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="cat app">
-<div class="cover c4">🐱</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" alt="Cat App"></div>
 <h3>Cat App</h3>
 <p>Fun interactive cat app</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/cat-app/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="calculator app">
-<div class="cover c5">🧮</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80" alt="Calculator App"></div>
 <h3>Calculator App</h3>
 <p>Calculator with clean design</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/calculator-app/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="app" data-name="memory match game">
-<div class="cover c6">🧠</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80" alt="Memory Match Game"></div>
 <h3>Memory Match Game</h3>
 <p>Memory matching game with JavaScript</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/memory-match-game/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="web" data-name="omnia real estate">
-<div class="cover c7">🏠</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Omnia Real Estate"></div>
 <h3>Omnia Real Estate</h3>
 <p>Real estate website to browse properties</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-real-estate/" target="_blank">View Live</a>
 </div>
 
 <div class="card" data-cat="react" data-name="omnia react shop">
-<div class="cover c8">🛍️</div>
+<div class="cover"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Omnia React Shop"></div>
 <h3>Omnia React Shop</h3>
 <p>E-commerce store built with React - Search, Filter, Cart, Quantity, Favorites, Dark Mode & Checkout</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/Omnia-React-Shop/" target="_blank">View Live</a>
