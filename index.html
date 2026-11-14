@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,29 +6,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omnia Ibrahim - Portfolio</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; transition:0.3s; }
 body { background:#fff5f8; color:#333; }
-header { background:linear-gradient(135deg,#ff5e8a,#ff8fb1); color:white; text-align:center; padding:50px 20px; }
+body.dark { background:#1a1a1a; color:#eee; }
+header { background:linear-gradient(135deg,#ff5e8a,#ff8fb1); color:white; text-align:center; padding:50px 20px; position:relative; }
 header h1 { font-size:36px; margin-bottom:10px; }
 header p { font-size:17px; line-height:1.6; max-width:700px; margin:10px auto; }
+.dark-btn { position:absolute; top:15px; right:15px; background:white; color:#ff5e8a; border:none; padding:10px 18px; border-radius:25px; font-weight:bold; cursor:pointer; }
 section { max-width:1000px; margin:30px auto; padding:0 20px; }
 h2 { color:#ff5e8a; margin-bottom:20px; font-size:26px; text-align:center; }
+.search-box { text-align:center; margin-bottom:15px; }
+.search-box input { width:90%; max-width:400px; padding:12px 18px; border-radius:25px; border:2px solid #ffd0dd; outline:none; font-size:15px; }
+body.dark .search-box input { background:#2a2a2a; color:white; border-color:#444; }
+.filters { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:25px; }
+.filters button { padding:9px 18px; border-radius:25px; border:1px solid #ff5e8a; background:white; color:#ff5e8a; cursor:pointer; font-weight:bold; }
+.filters button.active, .filters button:hover { background:#ff5e8a; color:white; }
 .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-.card { background:white; border-radius:15px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.08); text-align:center; }
+.card { background:white; border-radius:15px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.08); text-align:center; animation:fadeUp 0.6s ease; }
+body.dark .card { background:#2a2a2a; }
+.card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 10px 25px rgba(255,94,138,0.25); }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 .card .emoji { font-size:40px; }
 .card h3 { margin:12px 0 8px; font-size:19px; }
 .card p { font-size:14px; color:#666; line-height:1.5; min-height:55px; }
+body.dark .card p { color:#ccc; }
 .card a { display:inline-block; margin-top:12px; background:#ff5e8a; color:white; padding:10px 20px; border-radius:25px; text-decoration:none; font-weight:bold; }
 .card a:hover { background:#e04472; }
 .skills { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
 .skills span { background:white; border:1px solid #ffd0dd; padding:10px 18px; border-radius:25px; font-weight:bold; font-size:14px; }
+body.dark .skills span { background:#2a2a2a; border-color:#444; }
 .box { background:white; border-radius:15px; padding:25px; text-align:center; line-height:1.9; box-shadow:0 4px 15px rgba(0,0,0,0.08); }
+body.dark .box { background:#2a2a2a; }
+.box input, .box textarea { width:90%; max-width:450px; padding:12px; margin:8px 0; border-radius:12px; border:1px solid #ddd; outline:none; font-size:15px; }
+body.dark .box input, body.dark .box textarea { background:#1a1a1a; color:white; border-color:#444; }
+.box button { background:#ff5e8a; color:white; border:none; padding:12px 30px; border-radius:25px; font-weight:bold; cursor:pointer; margin-top:10px; }
 footer { text-align:center; padding:30px 20px; color:#888; font-style:italic; }
 </style>
 </head>
 <body>
 
 <header>
+<button class="dark-btn" onclick="toggleDark()">🌙 Dark Mode</button>
 <h1>Hi, I'm Omnia Ibrahim 👋</h1>
 <p><b>Front-End Developer | From Mansoura, Dakahlia, Egypt 🇪🇬</b></p>
 <p>I'm Omnia Ibrahim Farouk, a Front-End Developer graduated from Communications Engineering in 2026.<br>
@@ -38,58 +57,68 @@ I focus on clean code, modern design, and websites that work perfectly on mobile
 
 <section>
 <h2>🚀 My Projects</h2>
-<div class="projects">
+<div class="search-box">
+<input type="text" id="search" placeholder="🔍 Search for a project..." onkeyup="filterProjects()">
+</div>
+<div class="filters">
+<button class="active" onclick="setFilter('all',this)">All</button>
+<button onclick="setFilter('web',this)">Websites</button>
+<button onclick="setFilter('app',this)">Apps & Games</button>
+<button onclick="setFilter('react',this)">React</button>
+</div>
 
-<div class="card">
+<div class="projects" id="projects">
+
+<div class="card" data-cat="web" data-name="omnia fashion">
 <div class="emoji">👗</div>
 <h3>Omnia Fashion</h3>
 <p>Fashion store with product details, filter by price, tracking & dark mode</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-fashion/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="web" data-name="omnia clinic">
 <div class="emoji">🏥</div>
 <h3>Omnia Clinic</h3>
 <p>Smart medical booking system with symptoms suggestion, slots & patient file</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-clinic/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="web" data-name="omnia restaurant pro">
 <div class="emoji">🍔</div>
 <h3>Omnia Restaurant Pro</h3>
 <p>Food ordering website with cart, filter & WhatsApp order</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-restaurant-pro/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="app" data-name="cat app">
 <div class="emoji">🐱</div>
 <h3>Cat App</h3>
 <p>Fun interactive cat app</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/cat-app/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="app" data-name="calculator app">
 <div class="emoji">🧮</div>
 <h3>Calculator App</h3>
 <p>Calculator with clean design</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/calculator-app/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="app" data-name="memory match game">
 <div class="emoji">🧠</div>
 <h3>Memory Match Game</h3>
 <p>Memory matching game with JavaScript</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/memory-match-game/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="web" data-name="omnia real estate">
 <div class="emoji">🏠</div>
 <h3>Omnia Real Estate</h3>
 <p>Real estate website to browse properties</p>
 <a href="https://omniaibrahimfarouk2002-hub.github.io/omnia-real-estate/" target="_blank">View Live</a>
 </div>
 
-<div class="card">
+<div class="card" data-cat="react" data-name="omnia react shop">
 <div class="emoji">🛍️</div>
 <h3>Omnia React Shop</h3>
 <p>E-commerce store built with React - Search, Filter, Cart, Quantity, Favorites, Dark Mode & Checkout</p>
@@ -121,10 +150,51 @@ Communications & Electronics - Graduated 2026 - Mansoura, Egypt
 📞 01068348772<br>
 📧 omniaibrahimfarouk2002@gmail.com<br>
 💼 Open to: Junior Front-End - Freelance - Full-Time
+<hr style="margin:15px 0; border:none; border-top:1px solid #eee;">
+<h3 style="color:#ff5e8a; margin-bottom:10px;">Send Me a Message 💌</h3>
+<form onsubmit="sendMsg(event)">
+<input type="text" id="name" placeholder="Your Name" required><br>
+<input type="email" id="email" placeholder="Your Email" required><br>
+<textarea id="msg" rows="4" placeholder="Your Message..." required></textarea><br>
+<button type="submit">Send Message</button>
+</form>
+<p id="sent" style="color:green; font-weight:bold; margin-top:10px;"></p>
 </div>
 </section>
 
 <footer>"I don't just write code, I build experiences." - Omnia</footer>
+
+<script>
+let currentFilter = 'all';
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  let btn = document.querySelector('.dark-btn');
+  btn.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+function setFilter(cat, btn){
+  currentFilter = cat;
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProjects();
+}
+function filterProjects(){
+  let text = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(card=>{
+    let name = card.getAttribute('data-name');
+    let cat = card.getAttribute('data-cat');
+    let show = (currentFilter==='all' || currentFilter===cat) && name.includes(text);
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+function sendMsg(e){
+  e.preventDefault();
+  let name = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
+  let msg = document.getElementById('msg').value;
+  window.location.href = `mailto:omniaibrahimfarouk2002@gmail.com?subject=Message from ${name}&body=${msg} - From: ${email}`;
+  document.getElementById('sent').textContent = 'Thank you ' + name + '! Your message is ready to send ❤️';
+}
+</script>
 
 </body>
 </html>
